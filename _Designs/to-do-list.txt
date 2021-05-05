@@ -1,0 +1,62 @@
+TraQ 2 | Feature Lijst
+
+- [ ] Het moet een macOS app zijn
+- [ ] Er komt tevens een windows programma en een mobile app
+- [ ] Hij houdt bij welke nummers hij heeft gehad in een database én in de ID3 files van de nummers zelf
+- [ ] De UI moet bestaan uit een voorpagina met een grote knop ‘expand set’ erop en in de zijbalk alle categorieën
+- [ ] Als je op ‘expand set’ drukt wordt alle metadata aangevuld en worden er gelijk nieuwe nummers mp3 files die de applicatie in de downloads map heeft gevonden gepresenteerd aan de gebruiker
+- [ ] Je de-selecteert de mp3 bestanden die je niet wilt gebruiken en als je ‘ignore forever’ aanklikt worden deze bestanden op een blacklist in de database gezet
+- [ ] Je kunt nieuwe nummers aan je set toevoegen door ze in de app te droppen
+- [ ] Elk nummer moet aanpasbaar zijn door erop te klikken
+- [ ] Je kan zelf alle factoren aanpassen
+- [ ] De DISQ map staat nog steeds in ‘music’
+- [ ] Elk nummer staat nu met een hash als naam in een ‘resources’ map in de DISQ map
+- [ ] Covers worden in de ‘Caches’ map gezet
+- [ ] De nummers staan tevens gecomprimeerd met normale namen in een backup
+- [ ] De database en blacklist staat in ‘Library’
+- [ ] Standaard opties staan in ‘Application Support’
+- [ ] Er is een ‘create DISQ set’ optie die een mappenstructuur met nummers opbouwt op een door jou gekozen medium
+- [ ] Nummers worden uit de downloads map weggehaald
+- [ ] De app is voor MacOS geschreven maar zal ook op iPhone en iPad werken
+- [ ] Onderin staat een luister-balk
+- [ ] Bovenin staat een zoekbalk
+- [ ] Er zit een account inlog in voor spotify
+- [ ] ik heb zelf een redirect uri opgezet, namelijk de startpagina van mijn app
+- [ ] 1 cell heeft de cover, met daaronder titel en artiestenaam
+- [ ] In de rechterzijbalk staat de rest van de informatie, daar is alle info aanpasbaar
+- [ ] Alles gloeit mooi en is doorschijnend
+
+TraQ 2 | Workflow
+
+1. Je opent de app
+    1. Als dit de eerste keer is krijg je een spotify inlogscherm waarbij je op spotify moet inloggen en de app kunt authoriseren
+2. Er komt een klein opstartschermpje wat je de nieuwste nummers in de downloads map presenteert
+    1. je deselecteert de mp3 bestanden die je niet wilt, automatisch staat onderaan aangevinkt ‘ignore forever’
+    2. je start de app door op ‘add to set’ onderaan te klikken
+3. als er geen toe te voegen nummers zijn start de app meteen door
+4. Als er nieuwe nummers gecategoriseerd moeten worden schakelt de app na het opstarten gelijk naar het ‘categorize’ scherm
+5. in categorize zijn de nummers gesorteerd op toevoegingsdatum
+    1. je kunt ze naar categorieen slepen
+6. in alle andere schermen onder ‘playlists’ staan de nummers
+7. door op een nummer te klikken kun je het aanpassen en de spotify preview afspelen
+8. Je hebt linksonderin een ‘export’ knop
+    1. de export knop opent een nieuw scherm waarbij je 3 vakken (export to usb, export to folder en export to rekordbox playlists) kunt aanvinken
+    2. je kunt met de knop export onderin het export scherm op ‘export’ klikken
+
+
+Cocoa en Swift voor macOS
+Visual Basic voor Windows
+NativeScript voor iOS en Android
+
+TraQ | Huidige Implementatie
+
+1. Er staat een mapactie op de downloads map
+    1. De mapactie verplaatst elk .mp3 bestand wat ‘my-free-mp3’ in de naam heeft naar de disq map
+    2. de mapactie activeert ‘remove myfreemp3’
+    3. remove myfreemp3 is een aparte automator workflow die elk bestand opzoekt met ‘my-free-mp3’ in de naam en dit verwijderd
+2. De TRAQ app is een gecompileerde mac app
+    1. de gecompileerde mac app is een gecompileerd applescript
+    2. het gecompileerde applescript opent iTerm
+    3. iTerm opent de TRAQ symlink in de /usr/local/lib/node_modules/TRAQ/ map
+    4. de /usr/local/lib/node_modules/TRAQ/ map leidt naar de TRAQ app in de map IT-Stuff
+    5. de TRAQ app in de map IT-Stuff opent en loopt alle nummers na die nog niet in de json file staan

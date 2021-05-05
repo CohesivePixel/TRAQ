@@ -1,0 +1,26 @@
+{
+  "name": "TRAQ",
+  "version": "2.11.8",
+  "description": "Download track metadata and album art from Spotify and fill every track with said metadata",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ben",
+  "license": "GNU-GPL",
+  "bin": {
+    "traq": "./app.js"
+  },
+  "dependencies": {
+    "browser-id3-writer": "^4.0.0",
+    "commander": "^2.15.1",
+    "inquirer": "^5.2.0",
+    "npm": "^6.0.1",
+    "recursive-readdir": "^2.2.2",
+    "request": "^2.86.0",
+    "rimraf": "^2.6.2",
+    "spotify-web-api-node": "^3.1.1",
+    "terminal-kit": "^1.17.2"
+  },
+  "devDependencies": {}
+}

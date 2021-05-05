@@ -1,0 +1,32 @@
+De applicatie leest bij het opstarten alle muzieknummers en andere geluidsbestanden uit de downloads map uit. Bestanden waarbij de ID-3 tag een markering van de app bevatten worden niet meegenomen. Bestanden die tevens geen ID-3 tag bevatten worden ook niet meegenomen. De overgebleven bestanden worden verplaatst naar de werkmap van de app en hier gedupliceerd opgeslagen. De gekopieerde versie dient als backup en wordt ingepakt opgeslagen. Alle nieuw toegevoegde nummers worden bij het openen van de app aan de gebruiker gepresenteerd. De gebruiker dient de nummers in te delen in categorieen. De bestandsnaam van het nummer wordt samen met de gekozen categorie in een database opgeslagen. De naam van de artiest en de naam van het nummer worden uit de bestandsnaam gewonnen en verwerkt in een zoekopdracht gericht aan spotify. Indien de bestandsnaam niet aan een patroon voldoet zal alleen de naam van het nummer in de zoekopdracht verwerkt worden. De resultaten van de zoekopdracht worden per nummer gefilterd op naam van het album, naam van de artiest, naam van het nummer zelf, bpm, link voor de geluidspreview en album coverafbeelding. Deze resultaten worden vervolgens aan de gebruiker per nummer gepresenteerd. De gebruiker kiest een 'match' van spotifyresultaten bij het lokale bestand waarna deze 'match' opgeslagen zal worden. In de ID-3 tag van het desbetreffende bestand worden de coverafbeelding van het album, identificatie + versienummer van de app, cd-nummer, markering van de app, populariteit, startpositie van de eerste beat (POSS frame), naam van het album, bpm, uitgavedatum, titel van het nummer, lengte, oorspronkelijke bestandsnaamm, naam van de artiest en tracknummer weggeschreven. Vervolgens wordt de naam van het bestand in de werkmap vervangen door een willekeurige hash. Deze hash vervangt de bestandsnaamnaam in de database. Aan de database worden de gegevens toegevoegd. Een eindgebruiker is in staat de bibliotheek te exporteren. Elk nummer in de werkmap wordt gekopieerd naar een gekozen volume en daar geplaatst onderverdeeld in categorieen met als bestandsnaam de naam van het nummer gecombineerd met de naam van de artiest.
+
+
+-applicatie                          -bestandsnaam                    -app
+-muzieknummers                       -patroon                         -startpositie
+-geluidsbestand                      -naam (nummer)                   -beat
+-map                                 -zoekopdracht                    -naam (album)
+-bestanden                           -zoekopdracht                    -bpm
+-Tag (id3)                           -nummer                          -uitgavedatum
+-markering                           -naam (album)                    -naam (nummer)
+-app                                 -naam (artiest)                  -lengte
+-bestanden                           -naam (nummer)                   -bestandsnaam
+-tag(id3)                            -bpm                             -naam (artiest)
+-bestanden                           -previewlink                     -tracknummer
+-werkmap                             -coverafbeelding                 -naam (bestand)
+-app                                 -resultaten                      -werkmap
+-versie (van het bestand)            -resultaten                      -hash
+-nummers                             -gebruiker                       -hash
+-app                                 -nummer                          -bestandsnaam
+-gebruiker                           -gebruiker                       -database
+-gebruiker                           -match                           -database
+-nummers                             -spotifyresultaten               -gegevens
+-categorieen                         -bestand                         -eindgebruiker
+-bestandsnaam                        -match                           -bibliotheek
+-nummer                              -tag(ID-3)                       -nummer
+-categorie                           -bestand                         -werkmap
+-database                            -coverafbeelding                 -volume
+-naam (artiest)                      -identificatie                   -categorieen
+-naam (nummer)                       -cd-nummer                       -bestandsnaam
+-bestandsnaam                        -markering                       -naam(nummer)
+-zoekopdracht                        -populariteit                    -naam(artiest)
+-spotify                             -app
